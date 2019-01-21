@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		476EB11C21F6747E0053961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB11B21F6747E0053961E /* AppDelegate.swift */; };
-		476EB11E21F6747E0053961E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB11D21F6747E0053961E /* ViewController.swift */; };
 		476EB12121F6747E0053961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476EB11F21F6747E0053961E /* Main.storyboard */; };
 		476EB12421F6747E0053961E /* watchlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 476EB12221F6747E0053961E /* watchlist.xcdatamodeld */; };
 		476EB12621F6747F0053961E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476EB12521F6747F0053961E /* Assets.xcassets */; };
 		476EB12921F6747F0053961E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476EB12721F6747F0053961E /* LaunchScreen.storyboard */; };
+		476EB13121F67BF80053961E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB13021F67BF80053961E /* TableViewController.swift */; };
+		476EB13521F67F7D0053961E /* UITextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB13421F67F7D0053961E /* UITextViewFixed.swift */; };
+		476EB13921F6871A0053961E /* BorderTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB13821F6871A0053961E /* BorderTableCellView.swift */; };
+		476EB13B21F68AD30053961E /* BorderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB13A21F68AD30053961E /* BorderImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		476EB11821F6747E0053961E /* watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EB11B21F6747E0053961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		476EB11D21F6747E0053961E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		476EB12021F6747E0053961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		476EB12321F6747E0053961E /* watchlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = watchlist.xcdatamodel; sourceTree = "<group>"; };
 		476EB12521F6747F0053961E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		476EB12821F6747F0053961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		476EB12A21F6747F0053961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		476EB13021F67BF80053961E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		476EB13421F67F7D0053961E /* UITextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewFixed.swift; sourceTree = "<group>"; };
+		476EB13821F6871A0053961E /* BorderTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderTableCellView.swift; sourceTree = "<group>"; };
+		476EB13A21F68AD30053961E /* BorderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 		476EB11A21F6747E0053961E /* watchlist */ = {
 			isa = PBXGroup;
 			children = (
+				476EB13421F67F7D0053961E /* UITextViewFixed.swift */,
 				476EB11B21F6747E0053961E /* AppDelegate.swift */,
-				476EB11D21F6747E0053961E /* ViewController.swift */,
+				476EB13821F6871A0053961E /* BorderTableCellView.swift */,
+				476EB13A21F68AD30053961E /* BorderImageView.swift */,
 				476EB11F21F6747E0053961E /* Main.storyboard */,
+				476EB13021F67BF80053961E /* TableViewController.swift */,
 				476EB12521F6747F0053961E /* Assets.xcassets */,
 				476EB12721F6747F0053961E /* LaunchScreen.storyboard */,
 				476EB12A21F6747F0053961E /* Info.plist */,
@@ -139,8 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				476EB12421F6747E0053961E /* watchlist.xcdatamodeld in Sources */,
-				476EB11E21F6747E0053961E /* ViewController.swift in Sources */,
 				476EB11C21F6747E0053961E /* AppDelegate.swift in Sources */,
+				476EB13521F67F7D0053961E /* UITextViewFixed.swift in Sources */,
+				476EB13121F67BF80053961E /* TableViewController.swift in Sources */,
+				476EB13921F6871A0053961E /* BorderTableCellView.swift in Sources */,
+				476EB13B21F68AD30053961E /* BorderImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
