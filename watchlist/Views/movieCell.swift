@@ -9,7 +9,7 @@
 
 import UIKit
 
-class movieItemCollectionViewCell: UICollectionViewCell {
+class movieCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
 }

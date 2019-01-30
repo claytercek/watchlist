@@ -8,7 +8,7 @@
 
 import UIKit
 
-class movieDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class movieDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
