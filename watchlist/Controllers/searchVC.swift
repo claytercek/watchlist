@@ -24,6 +24,7 @@ class searchVC: movieCollectionVC {
     }
     
     
+    
     private let searchController = UISearchController(searchResultsController: nil)
     private let apiFetcher = APIRequestFetcher()
     private var previousRun = Date()
@@ -76,16 +77,17 @@ class searchVC: movieCollectionVC {
         return cell
     }
     
-    var selectedData: JSON = []
+    private var selectedInt = 0
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedData = searchResults[indexPath.row]
+        selectedInt = indexPath.row
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "YourIdentifier"{
+        debugPrint(selectedInt)
+        if segue.identifier == "searchDetail"{
             let destinationViewController = segue.destination as! movieDetailVC
-            destinationViewController.itemData = selectedData
+            destinationViewController.itemData = searchResults[selectedInt]
         }
     }
 
