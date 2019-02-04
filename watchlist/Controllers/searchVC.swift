@@ -34,7 +34,7 @@ class searchVC: movieCollectionVC {
     private func setupSearchBar() {
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Movies or TV shows"
+        searchController.searchBar.placeholder = "Search for Movies or Series"
         definesPresentationContext = true
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         self.navigationItem.searchController = searchController
@@ -67,27 +67,39 @@ class searchVC: movieCollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! movieCell
-        
+        cell.posterImage.image = nil
         if let url = searchResults[indexPath.row]["poster_path"].string {
             apiFetcher.fetchImage(url: url, completionHandler: { image, _ in
-                cell.posterImage.image = image
+                UIView.transition(with: cell.posterImage,
+                                  duration:0.2,
+                                  options: .transitionCrossDissolve,
+                                  animations: { cell.posterImage.image = image },
+                                  completion: nil)
             })
         }
         
         return cell
     }
     
-    private var selectedInt = 0
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedInt = indexPath.row
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        debugPrint(selectedInt)
         if segue.identifier == "searchDetail"{
             let destinationViewController = segue.destination as! movieDetailVC
-            destinationViewController.itemData = searchResults[selectedInt]
+            
+            guard let selectedCell = sender as? movieCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = collectionView.indexPath(for: selectedCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            destinationViewController.itemData = searchResults[indexPath.row]
+            if let cell = collectionView.cellForItem(at: indexPath) as? movieCell {
+                destinationViewController.posterData = cell.posterImage.image
+            }
+            
+            
         }
     }
 
@@ -110,8 +122,10 @@ extension searchVC: UISearchBarDelegate {
     }
     
     func fetchResults(for text: String) {
-        print("Text Searched: \(text)")
-        apiFetcher.search(searchText: text, completionHandler: {
+        let encoded:String = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+        print("Text Searched: \(text), encoded: \(encoded)")
+        apiFetcher.search(searchText: encoded, completionHandler: {
             [weak self] results, error in
             if case .failure = error {
                 return

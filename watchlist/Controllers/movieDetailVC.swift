@@ -14,6 +14,7 @@ class movieDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var collectionView: UICollectionView!
     
     var itemData: JSON = []
+    var posterData:UIImage!
     
      override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,8 @@ class movieDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         posterImage.layer.cornerRadius = 15
         posterImage.layer.masksToBounds = true
-        posterImage.layer.borderWidth = 2
         posterImage.layer.backgroundColor = UIColor.white.cgColor
-        debugPrint(itemData)
+        posterImage.image = posterData
         collectionView.delegate = self
         collectionView.dataSource = self
         

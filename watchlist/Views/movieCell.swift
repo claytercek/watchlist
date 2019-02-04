@@ -12,7 +12,6 @@ import UIKit
 class movieCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
-
     
     func getRandomColor() -> UIColor {
         //Generate between 0 to 1
@@ -29,13 +28,13 @@ class movieCell: UICollectionViewCell {
         
         posterImage.layer.cornerRadius = 15
         posterImage.layer.masksToBounds = true
-        posterImage.layer.borderWidth = 2
-        posterImage.layer.backgroundColor = getRandomColor().cgColor
+        posterImage.layer.borderWidth = 0
+        posterImage.layer.backgroundColor = UIColor.white.cgColor
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         layer.shadowRadius = 4.0
-        layer.shadowOpacity = 0.2
+        layer.shadowOpacity = 0.4
         layer.masksToBounds = false
     }
     
