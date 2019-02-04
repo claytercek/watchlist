@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class movieDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var itemData: JSON = []
     
      override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +24,10 @@ class movieDetailVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         posterImage.layer.masksToBounds = true
         posterImage.layer.borderWidth = 2
         posterImage.layer.backgroundColor = UIColor.white.cgColor
-        
-        
+        debugPrint(itemData)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
     
     }
     

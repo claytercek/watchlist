@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47067B822201096B006D598D /* customNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47067B812201096B006D598D /* customNavBar.swift */; };
+		4759261B2208C2A8007C2177 /* APIRequestFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4759261A2208C2A8007C2177 /* APIRequestFetcher.swift */; };
 		476EB11C21F6747E0053961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EB11B21F6747E0053961E /* AppDelegate.swift */; };
 		476EB12121F6747E0053961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476EB11F21F6747E0053961E /* Main.storyboard */; };
 		476EB12421F6747E0053961E /* watchlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 476EB12221F6747E0053961E /* watchlist.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		47067B812201096B006D598D /* customNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customNavBar.swift; sourceTree = "<group>"; };
+		4759261A2208C2A8007C2177 /* APIRequestFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestFetcher.swift; sourceTree = "<group>"; };
 		476EB11821F6747E0053961E /* watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EB11B21F6747E0053961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		476EB12021F6747E0053961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				476EB12721F6747F0053961E /* LaunchScreen.storyboard */,
 				476EB12A21F6747F0053961E /* Info.plist */,
 				476EB12221F6747E0053961E /* watchlist.xcdatamodeld */,
+				4759261A2208C2A8007C2177 /* APIRequestFetcher.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -209,12 +212,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-watchlist/Pods-watchlist-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4759261B2208C2A8007C2177 /* APIRequestFetcher.swift in Sources */,
 				476EB12421F6747E0053961E /* watchlist.xcdatamodeld in Sources */,
 				478E822B21FF98BB00CDE115 /* movieCollectionVC.swift in Sources */,
 				478E822D21FFA18200CDE115 /* movieCell.swift in Sources */,
