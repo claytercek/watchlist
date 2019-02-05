@@ -38,6 +38,21 @@ class APIRequestFetcher {
         }
     }
     
+    func getById(id: Int, type: String, completionHandler: @escaping (JSON?, NetworkError) -> ()) {
+        let urlToSearch = "https://api.themoviedb.org/3/\(type)/\(id)?api_key=\(API_key)&language=en-US"
+        print("getting url '\(urlToSearch)'")
+        Alamofire.request(urlToSearch).responseJSON { response in
+            guard let data = response.data else {
+                print("ruh roh")
+                completionHandler(nil, .failure)
+                return
+            }
+            
+            let json = try? JSON(data: data)
+            completionHandler(json, .success)
+        }
+    }
+    
     
     
     func fetchImage(url: String, completionHandler: @escaping (UIImage?, NetworkError) -> ()) {

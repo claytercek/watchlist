@@ -134,7 +134,7 @@ extension searchVC: UISearchBarDelegate {
             guard let results = results, !results.isEmpty else {
                 return
             }
-            
+            debugPrint(results)
             self?.searchResults = results
         })
     }
