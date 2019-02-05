@@ -45,7 +45,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="posterImage" destination="9aU-GP-dZ5" id="ZJA-2x-CH9"/>
-                                    <segue destination="0mt-zM-Mm5" kind="show" identifier="movieDetail" id="iOQ-C0-HB9"/>
+                                    <segue destination="0mt-zM-Mm5" kind="show" identifier="savedDetail" id="iOQ-C0-HB9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

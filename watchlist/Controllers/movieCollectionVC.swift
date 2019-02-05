@@ -84,7 +84,7 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "searchDetail"{
+        if segue.identifier == "savedDetail"{
             let destinationViewController = segue.destination as! movieDetailVC
             
             guard let selectedCell = sender as? movieCell else {
@@ -95,7 +95,7 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            destinationViewController.itemData = searchResults[indexPath.row]
+            destinationViewController.itemData = savedMovies[indexPath.row]
             if let cell = collectionView.cellForItem(at: indexPath) as? movieCell {
                 destinationViewController.posterData = cell.posterImage.image
             }
