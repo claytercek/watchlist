@@ -18,6 +18,7 @@
 		478E822B21FF98BB00CDE115 /* movieCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478E822A21FF98BB00CDE115 /* movieCollectionVC.swift */; };
 		478E822D21FFA18200CDE115 /* movieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478E822C21FFA18200CDE115 /* movieCell.swift */; };
 		478E823321FFAB6800CDE115 /* movieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478E823221FFAB6800CDE115 /* movieDetailVC.swift */; };
+		47F4C504222C6CA000982743 /* smb_coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F4C503222C6CA000982743 /* smb_coin.wav */; };
 		47FFB1322200268A0022FE89 /* buttonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FFB1312200268A0022FE89 /* buttonCell.swift */; };
 		47FFB13422002F610022FE89 /* searchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FFB13322002F610022FE89 /* searchVC.swift */; };
 		68A5DD3E47667A33396CC7D8 /* Pods_watchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758A5B11A6394143BFF61850 /* Pods_watchlist.framework */; };
@@ -37,6 +38,7 @@
 		478E822A21FF98BB00CDE115 /* movieCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieCollectionVC.swift; sourceTree = "<group>"; };
 		478E822C21FFA18200CDE115 /* movieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieCell.swift; sourceTree = "<group>"; };
 		478E823221FFAB6800CDE115 /* movieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieDetailVC.swift; sourceTree = "<group>"; };
+		47F4C503222C6CA000982743 /* smb_coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = smb_coin.wav; path = watchlist/Audio/smb_coin.wav; sourceTree = SOURCE_ROOT; };
 		47FFB1312200268A0022FE89 /* buttonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonCell.swift; sourceTree = "<group>"; };
 		47FFB13322002F610022FE89 /* searchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchVC.swift; sourceTree = "<group>"; };
 		758A5B11A6394143BFF61850 /* Pods_watchlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watchlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +123,20 @@
 		476EB11A21F6747E0053961E /* watchlist */ = {
 			isa = PBXGroup;
 			children = (
+				47F4C506222C6CB900982743 /* Audio */,
 				470C21242201F743008079B9 /* Views */,
 				470C21232201F723008079B9 /* Controllers */,
 				470C21252201FF15008079B9 /* SupportFiles */,
 			);
 			path = watchlist;
+			sourceTree = "<group>";
+		};
+		47F4C506222C6CB900982743 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				47F4C503222C6CA000982743 /* smb_coin.wav */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		6B88D2E3F149787598CB0654 /* Frameworks */ = {
@@ -196,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F4C504222C6CA000982743 /* smb_coin.wav in Resources */,
 				476FE060220956DE006DA384 /* dummyData.json in Resources */,
 				476EB12921F6747F0053961E /* LaunchScreen.storyboard in Resources */,
 				476EB12621F6747F0053961E /* Assets.xcassets in Resources */,

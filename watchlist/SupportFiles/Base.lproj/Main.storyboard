@@ -192,7 +192,11 @@
                         <viewLayoutGuide key="safeArea" id="p7h-eZ-viL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="h99-Qk-bU8">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Spa-1g-H0d"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Spa-1g-H0d">
+                            <connections>
+                                <action selector="saveButton:" destination="hP3-5i-RLz" id="si1-gA-dJS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="JFv-m6-I53" id="G4b-nN-3S7"/>
@@ -358,7 +362,11 @@
                         <viewLayoutGuide key="safeArea" id="Hmf-he-vFg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="OlF-eM-s9J">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="trash" id="2eM-hQ-zsz"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="trash" id="2eM-hQ-zsz">
+                            <connections>
+                                <action selector="deleteButton:" destination="0mt-zM-Mm5" id="toF-kT-6FW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="hld-Iw-QH3" id="WVB-49-vK2"/>

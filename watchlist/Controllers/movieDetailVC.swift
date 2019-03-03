@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import AVFoundation
 
 class movieDetailVC: UIViewController {
     
@@ -22,6 +23,7 @@ class movieDetailVC: UIViewController {
     var posterData:UIImage!
     var isLoading:Bool = true
     var type: String = "movie"
+    var audioPlayer: AVAudioPlayer?
     private let apiFetcher = APIRequestFetcher()
     
     
@@ -104,6 +106,27 @@ class movieDetailVC: UIViewController {
             
         }
     }
-
+    
+    @IBAction func saveButton(_ sender: Any) {
+        playSound();
+    }
+    
+    @IBAction func deleteButton(_ sender: Any) {
+        playSound();
+    }
+    
+    func playSound() {
+        do {
+            if let fileURL = Bundle.main.path(forResource: "smb_coin", ofType: "wav") {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
+                audioPlayer?.play()
+            } else {
+                print("No file with specified name exists")
+            }
+        } catch let error {
+            print("Can't play the audio file failed with an error \(error.localizedDescription)")
+        }
+    }
+    
 
 }
