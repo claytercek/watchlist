@@ -15,30 +15,38 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
     
     let data = NSData(contentsOfFile: "../SupportFiles/dummyData.json")
     private let apiFetcher = APIRequestFetcher()
-    private var savedMovies = JSON() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    
+    // Link context to persistentContainer
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var itemArray: [Item] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = Bundle.main.path(forResource: "dummyData", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSON(data: data)
-                savedMovies = jsonResult
-                    // do stuff
-            }
-             catch {
-                // handle error
-            }
-        }
+        // LOAD DATA IN
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.shadowImage = UIImage()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+        // Reload table view
+        collectionView.reloadData()
+    }
+    
+    func getData() {
+        // Read People Entity from CoreData into peopleArray
+        do {
+            itemArray = try context.fetch(Item.fetchRequest())
+            print("People Entity Fetching Successfull")
+        }
+        catch {
+            print("People Entity Fetching Failed")
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -47,13 +55,14 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedMovies.count
+        return itemArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! movieCell
         cell.posterImage.image = nil
-        if let url = savedMovies[indexPath.row]["poster_path"].string {
+        cell.titleText.text = ""
+        if let url = itemArray[indexPath.row].poster_path {
             apiFetcher.fetchImage(url: url, completionHandler: { image, _ in
                 UIView.transition(with: cell.posterImage,
                                   duration:0.2,
@@ -61,6 +70,9 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
                                   animations: { cell.posterImage.image = image },
                                   completion: nil)
             })
+        } else {
+            // No img
+            cell.titleText.text = itemArray[indexPath.row].title
         }
     
         return cell
@@ -95,7 +107,15 @@ class movieCollectionVC: UICollectionViewController, UICollectionViewDelegateFlo
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            destinationViewController.itemData = savedMovies[indexPath.row]
+            
+            let jsonObject: JSON = [
+                "media_type": itemArray[indexPath.row].media_type!,
+                "id": itemArray[indexPath.row].id,
+                "title": itemArray[indexPath.row].title!
+            ]
+            
+            destinationViewController.itemData = jsonObject
+            destinationViewController.itemObj = itemArray[indexPath.row]
             if let cell = collectionView.cellForItem(at: indexPath) as? movieCell {
                 destinationViewController.posterData = cell.posterImage.image
             }

@@ -32,19 +32,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="87" height="122"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9aU-GP-dZ5">
+                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9aU-GP-dZ5">
                                             <rect key="frame" x="0.0" y="0.0" width="87" height="122"/>
+                                            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" delaysContentTouches="NO" editable="NO" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-vL-kyM">
+                                            <rect key="frame" x="4" y="4" width="79" height="114"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            </accessibility>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9aU-GP-dZ5" secondAttribute="trailing" id="2fu-n3-j4I"/>
                                     <constraint firstItem="9aU-GP-dZ5" firstAttribute="top" secondItem="lvO-j6-YQE" secondAttribute="top" id="E7i-H6-KjZ"/>
                                     <constraint firstAttribute="bottom" secondItem="9aU-GP-dZ5" secondAttribute="bottom" id="Mcr-z8-3xr"/>
+                                    <constraint firstItem="6tN-vL-kyM" firstAttribute="top" secondItem="lvO-j6-YQE" secondAttribute="top" constant="4" id="U3s-R1-Kgf"/>
+                                    <constraint firstItem="6tN-vL-kyM" firstAttribute="leading" secondItem="lvO-j6-YQE" secondAttribute="leading" constant="4" id="aCd-aP-s6g"/>
+                                    <constraint firstAttribute="trailing" secondItem="6tN-vL-kyM" secondAttribute="trailing" constant="4" id="c0M-TU-8Wk"/>
                                     <constraint firstItem="9aU-GP-dZ5" firstAttribute="leading" secondItem="lvO-j6-YQE" secondAttribute="leading" id="hct-v5-MAW"/>
+                                    <constraint firstAttribute="bottom" secondItem="6tN-vL-kyM" secondAttribute="bottom" constant="4" id="xk7-L7-4ZZ"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="posterImage" destination="9aU-GP-dZ5" id="ZJA-2x-CH9"/>
+                                    <outlet property="titleText" destination="6tN-vL-kyM" id="9uU-AX-ep2"/>
                                     <segue destination="0mt-zM-Mm5" kind="show" identifier="savedDetail" id="iOQ-C0-HB9"/>
                                 </connections>
                             </collectionViewCell>
@@ -73,7 +87,7 @@
                     <tabBarItem key="tabBarItem" title="list" id="H1C-5C-lF1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Azp-ZA-Ahj" customClass="CustomNavBar" customModule="watchlist" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="94.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,16 +249,29 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZD-Vf-0an">
                                             <rect key="frame" x="0.0" y="0.0" width="87" height="122"/>
                                         </imageView>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" delaysContentTouches="NO" editable="NO" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IYJ-lP-p9j">
+                                            <rect key="frame" x="4" y="4" width="79" height="114"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            </accessibility>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="IYJ-lP-p9j" firstAttribute="top" secondItem="sqn-bk-oyb" secondAttribute="top" constant="4" id="AV5-5p-UwZ"/>
+                                    <constraint firstItem="IYJ-lP-p9j" firstAttribute="leading" secondItem="sqn-bk-oyb" secondAttribute="leading" constant="4" id="EkI-OO-ZEs"/>
+                                    <constraint firstAttribute="trailing" secondItem="IYJ-lP-p9j" secondAttribute="trailing" constant="4" id="IhH-Fh-YcH"/>
                                     <constraint firstAttribute="bottom" secondItem="oZD-Vf-0an" secondAttribute="bottom" id="Rv4-OB-610"/>
                                     <constraint firstAttribute="trailing" secondItem="oZD-Vf-0an" secondAttribute="trailing" id="SxO-dC-ARb"/>
                                     <constraint firstItem="oZD-Vf-0an" firstAttribute="leading" secondItem="sqn-bk-oyb" secondAttribute="leading" id="sUt-cP-cVd"/>
                                     <constraint firstItem="oZD-Vf-0an" firstAttribute="top" secondItem="sqn-bk-oyb" secondAttribute="top" id="yii-yV-fd9"/>
+                                    <constraint firstAttribute="bottom" secondItem="IYJ-lP-p9j" secondAttribute="bottom" constant="4" id="zTD-0y-9x6"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="posterImage" destination="oZD-Vf-0an" id="rdL-9W-znB"/>
+                                    <outlet property="titleText" destination="IYJ-lP-p9j" id="z3Z-g6-Smd"/>
                                     <segue destination="hP3-5i-RLz" kind="show" identifier="searchDetail" id="DWu-MF-gQo"/>
                                 </connections>
                             </collectionViewCell>

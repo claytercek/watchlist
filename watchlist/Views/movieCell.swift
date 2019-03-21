@@ -12,15 +12,7 @@ import UIKit
 class movieCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImage: UIImageView!
-    
-    func getRandomColor() -> UIColor {
-        //Generate between 0 to 1
-        let red:CGFloat = CGFloat(drand48())
-        let green:CGFloat = CGFloat(drand48())
-        let blue:CGFloat = CGFloat(drand48())
-        
-        return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
-    }
+    @IBOutlet weak var titleText: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

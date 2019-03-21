@@ -20,11 +20,14 @@ class movieDetailVC: UIViewController {
     @IBOutlet weak var overviewText: UITextView!
     
     var itemData: JSON = []
+//    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var itemObj: Item!
     var posterData:UIImage!
     var isLoading:Bool = true
     var type: String = "movie"
     var audioPlayer: AVAudioPlayer?
     private let apiFetcher = APIRequestFetcher()
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,12 +66,12 @@ class movieDetailVC: UIViewController {
         apiFetcher.getById(id: itemData["id"].int!, type: itemData["media_type"].string!, completionHandler: {
             [weak self] results, error in
             if case .failure = error {
-                print("sheeiiit")
+                print("error")
                 return
             }
             
             guard let results = results, !results.isEmpty else {
-                print("dang")
+                print("error")
                 return
             }
             self?.itemData = results
@@ -109,10 +112,39 @@ class movieDetailVC: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         playSound();
+        
+        print("Save data to CoreData")
+        
+        // Link context to persistentContainer
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // link peopleObj to entity People
+        let itemObj = Item(context: context)
+        
+        debugPrint(type)
+        
+        // Update atrributes with entity
+        itemObj.poster_path = itemData["poster_path"].string
+        itemObj.title = (itemData["title"].exists()) ? itemData["title"].string : itemData["name"].string
+        itemObj.id = Int32(itemData["id"].int!)
+        itemObj.media_type = type
+        
+        // Save to Context back to CoreData
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // Pop this view controller
+        let _ = navigationController?.popViewController(animated: true)
+
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        playSound();
+        print("Delete Item")
+        
+        // Link context to persistentContainer
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(itemObj)
+        let _ = navigationController?.popViewController(animated: true)
+        
     }
     
     func playSound() {

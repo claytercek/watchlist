@@ -67,8 +67,12 @@ class searchVC: movieCollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! movieCell
+        
         cell.posterImage.image = nil
-        if let url = searchResults[indexPath.row]["poster_path"].string {
+        cell.titleText.text = ""
+        let data = searchResults[indexPath.row]
+        print(data)
+        if let url = data["poster_path"].string {
             apiFetcher.fetchImage(url: url, completionHandler: { image, _ in
                 UIView.transition(with: cell.posterImage,
                                   duration:0.2,
@@ -76,6 +80,8 @@ class searchVC: movieCollectionVC {
                                   animations: { cell.posterImage.image = image },
                                   completion: nil)
             })
+        } else {
+            cell.titleText.text = (data["title"].exists()) ? data["title"].string : data["name"].string
         }
         
         return cell
@@ -124,7 +130,6 @@ extension searchVC: UISearchBarDelegate {
     func fetchResults(for text: String) {
         let encoded:String = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
-        print("Text Searched: \(text), encoded: \(encoded)")
         apiFetcher.search(searchText: encoded, completionHandler: {
             [weak self] results, error in
             if case .failure = error {
@@ -134,7 +139,6 @@ extension searchVC: UISearchBarDelegate {
             guard let results = results, !results.isEmpty else {
                 return
             }
-            debugPrint(results)
             self?.searchResults = results
         })
     }
